@@ -1,0 +1,139 @@
+:root {
+  --primary: #58a6ff;
+  --text-dark: #1e1e1e;
+  --text-light: #6b7280;
+  --bg-light: #f9fafb;
+  --font-main: 'Segoe UI', sans-serif;
+}
+
+/* ====== Section Layout ====== */
+.about-section {
+  background-color: var(--bg-light);
+  padding: 5rem 1.5rem;
+  font-family: var(--font-main);
+  display: flex;
+  justify-content: center;
+}
+
+.about-container {
+  max-width: 760px;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* ====== Icon ====== */
+.about-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+/* ====== Title ====== */
+.about-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+/* ====== Paragraphs ====== */
+.about-description {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ====== Language Bars ====== */
+.lang-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.lang-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.lang-bar {
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.lang-bar:hover {
+  transform: scale(1.015);
+}
+
+.lang-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.bar {
+  width: 100%;
+  height: 12px;
+  background-color: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+/* ====== Proficiency Levels ====== */
+.native {
+  width: 100%;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+}
+
+.fluent {
+  width: 90%;
+  background: linear-gradient(90deg, #60a5fa, #3b82f6);
+}
+
+.conversational {
+  width: 60%;
+  background: linear-gradient(90deg, #a78bfa, #8b5cf6);
+}
+
+.basic {
+  width: 40%;
+  background: linear-gradient(90deg, #fcd34d, #facc15);
+}
+
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .lang-title {
+    font-size: 0.9rem;
+  }
+
+  .bar {
+    height: 10px;
+  }
+}

@@ -1,0 +1,89 @@
+.contact {
+  padding: 4rem 2rem;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  overflow: hidden;
+  resize: none; /* Prevent drag/resize */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #58a6ff;
+  outline: none;
+}
+
+.contact-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+.contact-form button:disabled {
+  background-color: #b0d0ff;
+  cursor: not-allowed;
+}
+
+.char-count {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: right;
+}
+
+/* Accessible hidden label */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Toastify style overrides */
+.Toastify__toast--success {
+  background-color: #28a745;
+  color: white;
+}
+.Toastify__toast--error {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 0 1rem;
+  }
+
+  .char-count {
+    text-align: left;
+  }
+}

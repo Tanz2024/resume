@@ -1,0 +1,73 @@
+/* ===== Base Layout ===== */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #ffffff;
+  color: #111;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark #root {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* ===== Card Styling ===== */
+.card {
+  background-color: #ffffff;
+  color: #111;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark .card {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.dark .read-the-docs {
+  color: #aaa;
+}
+
+/* ===== Logo Styling ===== */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.dark .logo:hover {
+  filter: drop-shadow(0 0 2em #88aaffaa);
+}
+.dark .logo.react:hover {
+  filter: drop-shadow(0 0 2em #88f2ffaa);
+}
+
+/* ===== Animation ===== */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
