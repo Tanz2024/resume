@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿
 import './Hero.css';
 import { MdLocationPin } from 'react-icons/md';
 import { FaLaptopCode } from 'react-icons/fa';

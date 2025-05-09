@@ -1,7 +1,15 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "jsx": "react-jsx",  // This tells TypeScript to use the new JSX transform
+    "strict": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,  // Enable default imports for modules using 'export ='
+    "esModuleInterop": true,               // Enables compatibility with CommonJS modules
+    "allowImportingTsExtensions": true     // Allows importing .tsx extensions
+  },
+  "include": ["src"]
 }

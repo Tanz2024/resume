@@ -13,7 +13,7 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react-jsx",  // React 17+ JSX transform
 
     /* Linting */
     "strict": true,
@@ -21,7 +21,11 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Import settings */
+    "allowSyntheticDefaultImports": true,  // Allow default imports from modules with 'export ='
+    "esModuleInterop": true                // Enables compatibility with CommonJS modules
   },
   "include": ["src"]
 }
