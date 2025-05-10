@@ -5,8 +5,22 @@ import { HiDownload } from 'react-icons/hi';
 import profileImg from '../assets/Profile.pic.jpg';
 
 function Hero(): JSX.Element {
-  // ✅ Dynamically generate the correct path for public asset
   const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
+
+  // ✅ Track both view + download from single click
+  const handleResumeClick = () => {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'view_resume', {
+        event_category: 'engagement',
+        event_label: 'Resume Viewed via Single Button',
+      });
+
+      window.gtag('event', 'download_resume', {
+        event_category: 'engagement',
+        event_label: 'Hero Resume Button',
+      });
+    }
+  };
 
   return (
     <section className="hero" id="home">
@@ -21,7 +35,7 @@ function Hero(): JSX.Element {
           />
         </div>
 
-        {/* Intro Text */}
+        {/* Intro */}
         <div className="text-content">
           <h1 className="intro">
             <span className="intro-greeting">Hello, I'm</span>{' '}
@@ -47,12 +61,14 @@ function Hero(): JSX.Element {
               <FaLaptopCode /> Open to Remote Work
             </span>
 
+            {/* Combined View + Download */}
             <a
               className="tag"
               href={resumeUrl}
               download="TanzimBinZahir_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleResumeClick}
             >
               <HiDownload /> Resume
             </a>

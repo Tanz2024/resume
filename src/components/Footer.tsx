@@ -26,22 +26,49 @@ function Footer(): JSX.Element {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // ✅ Google Analytics tracking for social links
+  const trackSocialClick = (label: string) => {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'social_link_click', {
+        event_category: 'outbound',
+        event_label: label,
+      });
+    }
+  };
+
   return (
     <footer className="footer" ref={footerRef}>
       <div className="footer-icons">
         <a href="tel:+60109540995" title="Call">
           <FaPhoneAlt />
         </a>
-        <a href="https://wa.me/60109540995" title="WhatsApp" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://wa.me/60109540995"
+          title="WhatsApp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaWhatsapp />
         </a>
         <a href="mailto:tanzimbinzahir@gmail.com" title="Email">
           <FaEnvelope />
         </a>
-        <a href="https://github.com/Tanz2024" title="GitHub" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/Tanz2024"
+          title="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackSocialClick('GitHub')}
+        >
           <FaGithub />
         </a>
-        <a href="https://www.linkedin.com/in/tanz2023/" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/tanz2023/"
+          title="LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackSocialClick('LinkedIn')}
+        >
           <FaLinkedin />
         </a>
       </div>
