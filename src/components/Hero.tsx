@@ -1,19 +1,23 @@
-﻿
-import './Hero.css';
+﻿import './Hero.css';
 import { MdLocationPin } from 'react-icons/md';
 import { FaLaptopCode } from 'react-icons/fa';
 import { HiDownload } from 'react-icons/hi';
+import profileImg from '../assets/Profile.pic.jpg';
 
 function Hero(): JSX.Element {
+  // ✅ Dynamically generate the correct path for public asset
+  const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
+
   return (
     <section className="hero" id="home">
       <div className="hero-content">
         {/* Profile Image */}
         <div className="image-content">
           <img
-            src="/src/assets/Profile.pic.jpg"
-            alt="Tanzim Bin Zahir"
+            src={profileImg}
+            alt="Tanzim Bin Zahir Profile"
             loading="lazy"
+            className="profile-img"
           />
         </div>
 
@@ -28,7 +32,7 @@ function Hero(): JSX.Element {
             <strong>AI Engineer · Full-Stack Developer · Mobile App Enthusiast</strong>
           </p>
 
-          {/* Tags: Location, Remote, Resume */}
+          {/* Tags */}
           <div className="hero-tags">
             <a
               className="tag"
@@ -45,8 +49,8 @@ function Hero(): JSX.Element {
 
             <a
               className="tag"
-              href="/Tanzim_Bin_Zahir_Resume.pdf"
-              download="Tanzim_Bin_Zahir_Resume.pdf"
+              href={resumeUrl}
+              download="TanzimBinZahir_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -54,7 +58,6 @@ function Hero(): JSX.Element {
             </a>
           </div>
 
-          {/* Tagline and description */}
           <p className="hero-tagline">
             Building smart, scalable software that solves real problems.
           </p>
