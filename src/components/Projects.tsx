@@ -1,46 +1,18 @@
+import React from 'react';
 import './Projects.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useTranslation } from 'react-i18next';
 
-function Projects(): JSX.Element {
-  const projects = [
-    {
-      title: 'QuickFit – QR Restaurant System',
-      desc: 'SaaS platform with QR-based ordering, menu editing, and admin dashboard.',
-      tech: ['TypeScript', 'Node.js', 'Express.js', 'Tailwind CSS'],
-      link: 'https://github.com/Tanz2024/restuarantqr',
-    },
-    {
-      title: 'SpeakFree – Voice AI Chatbot',
-      desc: 'Multilingual voice chatbot with GPT, Whisper, LangChain, LangGraph, and Pinecone.',
-      tech: ['React Native', 'FastAPI', 'TypeScript', 'Pinecone', 'LangChain', 'PostgreSQL'],
-      link: 'https://github.com/Tanz2024/Chatbot',
-    },
-    {
-      title: 'IES – Intelligent Energy Saver',
-      desc: 'Energy optimizer using ThingsBoard via WebSocket and ML graph models.',
-      tech: ['ThingsBoard', 'TensorFlow', 'PyTorch', 'React', 'Chart.js', 'PostgreSQL', 'WebSocket', 'Azure'],
-      link: 'https://github.com/Tanz2024/IES',
-    },
-    {
-      title: 'Blog Management API – NestJS',
-      desc: 'Full-featured blog system with GraphQL, Prisma, CQRS, and JWT authentication.',
-      tech: ['NestJS', 'Prisma', 'PostgreSQL', 'GraphQL'],
-      link: 'https://github.com/Tanz2024/NestJSBlogManagementAPI',
-    },
-    {
-      title: 'Inventory Management System',
-      desc: 'OCR-powered inventory tracker with GPT and real-time editable dashboard.',
-      tech: ['React', 'Node.js', 'PostgreSQL', 'REST API', 'OCR', 'GPT','Firebase'],
-      link: 'https://github.com/Tanz2024/inventory-management',
-    },
-  ];
+function Projects() {
+  const { t } = useTranslation();
+  const projects = t('projectsList', { returnObjects: true }) || [];
 
   return (
     <section className="projects" id="projects">
-      <h2 className="projects-title">Featured Projects</h2>
+      <h2 className="projects-title">{t('projects.title')}</h2>
 
       <Swiper
         modules={[Pagination, Autoplay]}
@@ -57,13 +29,13 @@ function Projects(): JSX.Element {
         }}
         className="project-swiper"
       >
-        {projects.map((project, index) => (
+        {Array.isArray(projects) && projects.map((project, index) => (
           <SwiperSlide key={index}>
             <div className="project-card" tabIndex={0} aria-label={`Project: ${project.title}`}>
               <div className="project-header text-icon-header">
                 <div className="project-title-box">{project.title}</div>
                 <div className="tech-tags">
-                  {project.tech.map((tech, idx) => (
+                  {project.tech.map((tech: string, idx: number) => (
                     <span className="tag" key={idx}>{tech}</span>
                   ))}
                 </div>
@@ -75,7 +47,7 @@ function Projects(): JSX.Element {
                 rel="noopener noreferrer"
                 className="project-button"
               >
-                View Code →
+                {t('projects.viewCode')}
               </a>
             </div>
           </SwiperSlide>
@@ -84,7 +56,7 @@ function Projects(): JSX.Element {
 
       <div className="see-more">
         <a href="https://github.com/Tanz2024" className="see-more-link">
-          See all projects →
+          {t('projects.seeAll')}
         </a>
       </div>
     </section>

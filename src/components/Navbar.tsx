@@ -1,8 +1,10 @@
-﻿import { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import './Navbar.css';
 
 function Navbar(): JSX.Element {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -58,12 +60,12 @@ function Navbar(): JSX.Element {
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'timeline', label: 'Timeline' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: t('navbar.home') },
+    { id: 'about', label: t('navbar.about') },
+    { id: 'timeline', label: t('navbar.timeline') },
+    { id: 'projects', label: t('navbar.projects') },
+    { id: 'skills', label: t('navbar.skills') },
+    { id: 'contact', label: t('navbar.contact') },
   ];
 
   return (

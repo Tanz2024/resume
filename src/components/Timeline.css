@@ -8,7 +8,7 @@
     font-size: 2.4rem;
     font-weight: 700;
     margin-bottom: 3rem;
-    color: #111;
+    color: var(--text-dark);
   }
   
   .timeline-section {
@@ -82,19 +82,19 @@
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
-    color: #111;
+    color: var(--text-dark);
   }
   
   .timeline-company {
     font-size: 1rem;
-    color: #555;
+    color: var(--text-light);
     margin-bottom: 0.25rem;
     line-height: 1.5;
   }
   
   .timeline-date {
     background: #e8f0fe;
-    color: #333;
+    color: var(--text-dark);
     font-size: 0.8rem;
     display: inline-block;
     padding: 0.25rem 0.7rem;
@@ -107,7 +107,7 @@
     margin-top: 0.5rem;
     padding-left: 1.2rem;
     list-style: disc;
-    color: #333;
+    color: var(--text-dark);
   }
   
   .timeline-bullets li {
@@ -177,4 +177,3 @@
       font-size: 0.9rem;
     }
   }
-  

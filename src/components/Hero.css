@@ -12,7 +12,7 @@
 /* ===== Hero Section ===== */
 .hero {
   background: var(--bg-light);
-  padding: calc(6.5rem + 1rem) 1.5rem 5rem; /* avoid overlap with sticky navbar */
+  padding: calc(6.5rem + 1rem) 1.5rem 5rem;
   font-family: var(--font-main);
   display: flex;
   justify-content: center;
@@ -84,7 +84,7 @@
 }
 
 .intro-greeting {
-  color: #6b7280; /* Tailwind gray-500 equivalent */
+  color: var(--text-light);
   font-weight: 500;
   font-size: 2.8rem;
   opacity: 0;
@@ -94,7 +94,7 @@
 
 .hero-name {
   font-family: var(--font-highlight);
-  color: #111;
+  color: var(--text-dark);
   font-weight: 800;
   font-size: 3rem;
   letter-spacing: 0.3px;
@@ -147,7 +147,7 @@
 /* ===== Tagline and Description ===== */
 .hero-tagline {
   font-size: 1.1rem;
-  color: #374151;
+  color: var(--text-light);
   margin-bottom: 1rem;
   font-style: italic;
   letter-spacing: 0.2px;
@@ -155,7 +155,7 @@
 
 .hero-description {
   font-size: 1.1rem;
-  color: #444;
+  color: var(--text-dark);
   margin-top: 1rem;
   margin-bottom: 2rem;
   line-height: 1.6;

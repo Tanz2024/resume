@@ -1,11 +1,11 @@
 :root {
-  --footer-bg: #0d1117;
-  --footer-text: #c9d1d9;
-  --footer-muted: #9ca3af;
-  --icon-color: #58a6ff;
-  --icon-hover: #84c5ff;
-  --scroll-bg: #2389ff;
-  --scroll-hover: #1c6ed2;
+  --footer-bg: #f9fafb;
+  --footer-text: #222;
+  --footer-muted: #6b7280;
+  --icon-color: #007bff;
+  --icon-hover: #0056b3;
+  --scroll-bg: #007bff;
+  --scroll-hover: #0056b3;
 }
 
 /* ====== Footer Layout ====== */
@@ -14,7 +14,7 @@
   color: var(--footer-text);
   text-align: center;
   padding: 2rem 1rem 3rem;
-  border-top: 1px solid #30363d;
+  border-top: 1px solid #e5e7eb;
   position: relative;
 }
 

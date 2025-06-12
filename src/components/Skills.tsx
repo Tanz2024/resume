@@ -1,6 +1,7 @@
 ﻿// Skills.tsx
 import React from 'react';
 import './Skills.css';
+import { useTranslation } from 'react-i18next';
 
 import {
   SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiNodedotjs, SiExpress, SiNestjs,
@@ -60,13 +61,13 @@ const skills = [
   { name: 'Ngrok / Render', icon: <FiBox style={{ color: '#6B7280' }} />, url: 'https://ngrok.com/' },
 ];
 
-export default function Skills(): JSX.Element {
+export default function Skills() {
+  const { t } = useTranslation();
+
   return (
     <section className="skills" id="skills">
-      <h2 className="skills-title">My Skills</h2>
-      <p className="skills-subtitle">
-        Technologies I work with across frontend, backend, databases, AI, cloud, and APIs:
-      </p>
+      <h2 className="skills-title">{t('skills.title')}</h2>
+      <p className="skills-subtitle">{t('skills.subtitle')}</p>
       <div className="skills-grid">
         {skills.map(({ name, icon, url }) => (
           <a

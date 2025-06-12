@@ -3,8 +3,10 @@ import { MdLocationPin } from 'react-icons/md';
 import { FaLaptopCode } from 'react-icons/fa';
 import { HiDownload } from 'react-icons/hi';
 import profileImg from '../assets/Profile.pic.jpg';
+import { useTranslation } from 'react-i18next';
 
 function Hero(): JSX.Element {
+  const { t } = useTranslation();
   const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
 
   // ✅ Track both view + download from single click
@@ -38,12 +40,12 @@ function Hero(): JSX.Element {
         {/* Intro */}
         <div className="text-content">
           <h1 className="intro">
-            <span className="intro-greeting">Hello, I'm</span>{' '}
-            <span className="hero-name">Tanzim Bin Zahir</span>
+            <span className="intro-greeting">{t('hero.greeting')}</span>{' '}
+            <span className="hero-name">{t('hero.name')}</span>
           </h1>
 
           <p className="hero-subtitle">
-            <strong>AI Engineer · Full-Stack Developer · Mobile App Enthusiast</strong>
+            <strong>{t('hero.subtitle')}</strong>
           </p>
 
           {/* Tags */}
@@ -54,11 +56,11 @@ function Hero(): JSX.Element {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <MdLocationPin /> Based in Malaysia
+              <MdLocationPin /> {t('hero.based')}
             </a>
 
             <span className="tag">
-              <FaLaptopCode /> Open to Remote Work
+              <FaLaptopCode /> {t('hero.remote')}
             </span>
 
             {/* Combined View + Download */}
@@ -70,17 +72,13 @@ function Hero(): JSX.Element {
               rel="noopener noreferrer"
               onClick={handleResumeClick}
             >
-              <HiDownload /> Resume
+              <HiDownload /> {t('hero.resume')}
             </a>
           </div>
 
-          <p className="hero-tagline">
-            Building smart, scalable software that solves real problems.
-          </p>
+          <p className="hero-tagline">{t('hero.tagline')}</p>
 
-          <p className="hero-description">
-            Turning bold ideas into <strong>reliable</strong>, high-impact web and mobile apps — powered by <strong>AI</strong>, built for the real world.
-          </p>
+          <p className="hero-description">{t('hero.description')}</p>
         </div>
       </div>
     </section>

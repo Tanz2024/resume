@@ -4,10 +4,14 @@ import { ToastContainer } from 'react-toastify'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import 'react-toastify/dist/ReactToastify.css'
+import { useTranslation } from 'react-i18next'
+import React from 'react'
 
 const MAX_CHAR_LIMIT = 500
 
-function Contact(): JSX.Element {
+function Contact() {
+  const { t } = useTranslation()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -35,11 +39,12 @@ function Contact(): JSX.Element {
 
   return (
     <section className="contact" id="contact">
-      <h2 className="contact-title">Contact Me</h2>
+      <h2 className="contact-title">{t('contact.title')}</h2>
 
       <div className="maintenance-banner">
-        ⚠️ <strong>Temporary Notice:</strong> This contact form is currently undergoing maintenance.<br />
-        Please reach out directly via email at:
+        ⚠️ <strong>{t('contact.maintenance')}</strong>
+        <br />
+        {t('contact.email')}
         <br />
         <a href="mailto:tanzimbinzahir@gmail.com" className="email-link">
           tanzimbinzahir@gmail.com
@@ -51,7 +56,7 @@ function Contact(): JSX.Element {
           id="name"
           name="name"
           type="text"
-          placeholder="Your Name"
+          placeholder={t('contact.yourName')}
           value={formData.name}
           onChange={handleChange}
           disabled
@@ -61,7 +66,7 @@ function Contact(): JSX.Element {
           id="email"
           name="email"
           type="email"
-          placeholder="Your Gmail"
+          placeholder={t('contact.yourGmail')}
           value={formData.email}
           onChange={handleChange}
           disabled
@@ -78,7 +83,7 @@ function Contact(): JSX.Element {
         <textarea
           id="message"
           name="message"
-          placeholder="Your Message"
+          placeholder={t('contact.yourMessage')}
           value={formData.message}
           onChange={handleChange}
           rows={4}
@@ -88,11 +93,11 @@ function Contact(): JSX.Element {
         ></textarea>
 
         <div className="char-count">
-          {charCount} / {MAX_CHAR_LIMIT} characters
+          {charCount} / {MAX_CHAR_LIMIT} {t('contact.charCount')}
         </div>
 
         <button type="submit" disabled>
-          Contact Temporarily Unavailable
+          {t('contact.unavailable')}
         </button>
       </form>
 

@@ -1,5 +1,5 @@
 ﻿import './Footer.css';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -8,10 +8,14 @@ import {
   FaWhatsapp,
   FaLinkedin,
 } from 'react-icons/fa';
+import i18n from '../i18n';
+import { useTranslation } from 'react-i18next';
 
-function Footer(): JSX.Element {
+function Footer() {
+  const { t } = useTranslation();
   const footerRef = useRef<HTMLElement>(null);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [lang, setLang] = useState(i18n.language || 'en');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,26 +40,32 @@ function Footer(): JSX.Element {
     }
   };
 
+  const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLang = e.target.value;
+    setLang(newLang);
+    i18n.changeLanguage(newLang);
+  };
+
   return (
     <footer className="footer" ref={footerRef}>
       <div className="footer-icons">
-        <a href="tel:+60109540995" title="Call">
+        <a href="tel:+60109540995" title={t('footer.call')}>
           <FaPhoneAlt />
         </a>
         <a
           href="https://wa.me/60109540995"
-          title="WhatsApp"
+          title={t('footer.whatsapp')}
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaWhatsapp />
         </a>
-        <a href="mailto:tanzimbinzahir@gmail.com" title="Email">
+        <a href="mailto:tanzimbinzahir@gmail.com" title={t('footer.email')}>
           <FaEnvelope />
         </a>
         <a
           href="https://github.com/Tanz2024"
-          title="GitHub"
+          title={t('footer.github')}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackSocialClick('GitHub')}
@@ -64,7 +74,7 @@ function Footer(): JSX.Element {
         </a>
         <a
           href="https://www.linkedin.com/in/tanz2023/"
-          title="LinkedIn"
+          title={t('footer.linkedin')}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackSocialClick('LinkedIn')}
@@ -72,16 +82,37 @@ function Footer(): JSX.Element {
           <FaLinkedin />
         </a>
       </div>
-
+      <div style={{ margin: '1.5rem 0 0.5rem' }}>
+        <label
+          htmlFor="lang-select"
+          style={{ marginRight: 8, fontWeight: 500 }}
+        >
+          {t('footer.languageLabel', 'Language:')}
+        </label>
+        <select
+          id="lang-select"
+          value={lang}
+          onChange={handleLangChange}
+          style={{
+            padding: '0.4em 1em',
+            borderRadius: 6,
+            border: '1px solid #ccc',
+            fontWeight: 500,
+          }}
+        >
+          <option value="en">EN</option>
+          <option value="ms">BM</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
       <p className="copyright">
-        &copy; {new Date().getFullYear()} Tanzim Bin Zahir — All rights reserved.
+        &copy; {new Date().getFullYear()} Tanzim Bin Zahir — {t('footer.copyright')}
       </p>
-
       {isFooterVisible && (
         <button
           className="scroll-up-float"
           onClick={scrollToTop}
-          title="Back to Top"
+          title={t('footer.backToTop')}
         >
           <FaArrowUp />
         </button>
